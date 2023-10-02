@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xin chào các bạn</title>
+    <link rel="stylesheet"type="text/css"href="style.css">
+    <style>
+        
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <nav id="navbar">
+            <a href="#self-info">Giới thiệu bản thân</a>
+            <a href="#contact">Giao lưu</a>
+        </nav>
+    </div>
+    <div id="self-into">
+        <h1>Giới thiệu bản thân</h1>
+        <img id="avatar" src="./cat.png" alt="My avatar">
+        <h2>Thông tin cơ bản</h2>
+        <ul>
+            <li>Tên: Phan Thanh Dương</li>
+            <li>Năm sinh: 2003</li>
+            <li>Chuyên ngành: Công nghệ thông tin</li>
+        </ul>
+        <h2>Sở thích</h2>
+        <h3>Món ăn</h3>
+        <ol>
+            <li>Cơm</li>
+            <li>Cá</li>
+            <li>Canh</li>
+        </ol>
+        <h3>Giải trí</h3>
+        <h4>Trò chơi</h4>
+        <ul>
+            <li>Freefire</li>
+            <li>Nhảy dây</li>
+            <li>Bắn bi</li>
+        </ul>
+        <h4>Bài nhạc yêu thích</h4>
+        <ul>
+            <li>Em của ngày hôm qua - Sơn Tùng MTP</li>
+            <li>Điều chưa nói - Andiez</li>
+            <li>Chúng ta không thuộc về nhau - Sơn Tùng MTP</li>
+        </ul>
+        <h2>Mục tiêu bản thân</h2>
+        <table>
+            <tr>
+                <th>Mục tiêu</th>
+                <th>Thời hạn</th>
+                <th>Hoàn thành</th>
+            </tr>
+            <tr>
+                <td>Đạt điểm toeic nghe đọc 900</td>
+                <td>30/10/2023</td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>GPA 9.0</td>
+                <td>30/5/2024</td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>Lương nghìn $$$</td>
+                <td>30/10/2030</td>
+                <td><input type="checkbox"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="contact">
+        <h1>Gửi thông tin và giao lưu cùng tôi</h1>
+        <form action="">
+            <div id="name-input" class="input-block">
+                <label for="">Họ và tên:</label>
+                <input type="text">
+            </div>
+            <div id="email-input" class="input-block">
+                <label for="">Email:</label>
+                <input type="text">
+            </div>
+            <div id="message-input" class="input-block">
+                <label for="">Tin nhắn:</label><br>
+                <textarea cols="40" rows="5"></textarea>
+            </div>
+            <div id="gender-input" class="input-block">
+                <label for="">Giới tính:</label><br>
+                <input type="radio" name="male-gender" id="male-gender">
+                <label for="male-gender">Nam</label>
+                <input type="radio" name="female-gender" id="female-gender">
+                <label for="female-gender">Nữ</label>
+            </div>
+
+            <div id="interest-input" class="input-block">
+                <label for="">Sở thích:</label><br>
+                <input type="checkbox" name="" id="football-interest">
+                <label for="football-interest">Đá banh</label>
+                <input type="checkbox" name="" id="music-interest">
+                <label for="music-interest">Nghe nhạc</label>
+                <input type="checkbox" name="" id="game-interest">
+                <label for="game-interest">Chơi game</label>
+            </div>
+            <div id="major-input" class="input-block">
+                <label for="">Ngành:</label>
+                <select>
+                    <option value="">Công nghệ thông tin</option>
+                    <option value="">Hệ thống thông tin</option>
+                    <option value="">Khoa học máy tính</option>
+                    <option value="">Kỹ thuật phần mềm</option>
+                </select>
+            </div>
+            <button type="submit" class="input-block">Gửi</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>@2023 21520762 Phan Thanh Dương</p>
+    </footer>
+
+</body>
+
+</html>
