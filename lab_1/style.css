@@ -1,7 +1,11 @@
-html, body {
+/* Bài 5: style.css */
+
+html,
+body {
     padding: 0;
     margin: 0;
 }
+
 #avatar {
     position: relative;
     left: 50%;
@@ -14,8 +18,6 @@ html, body {
 
 #contact {
     background-image: url("./bg.jpg");
-    /* background-repeat: repeat;
-    /* background-color: aquamarine; */
     text-align: center;
 }
 
@@ -35,7 +37,7 @@ h3 {
 }
 
 h4 {
-    color:#fbefb1;
+    color: #fbefb1;
 }
 
 h1,
@@ -46,7 +48,8 @@ h4 {
     -webkit-text-stroke: 1px #000;
 }
 
-th, td {
+th,
+td {
     border: 1px solid black;
 }
 
@@ -54,10 +57,11 @@ th, td {
     margin: 10px 0;
 }
 
-#navbar, footer {
+#navbar,
+footer {
     text-align: center;
     background-color: #d4f2f4;
-    color:  #0b0848;
+    color: #0b0848;
 }
 
 #navbar a {

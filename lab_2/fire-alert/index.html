@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phòng cháy - Chữa cháy</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>PHÒNG CHÁY CHỮA CHÁY</h1>
+    </header>
+    <div id="button" onmouseover="showLevelB()" onmouseout="hideLevelB()" onclick="toggleLevelA(event)"></div>
+    <div id="level-c">
+        <div class="content">
+            <h2>Hãy luôn cảnh giác và phòng cháy đúng cách!!!</h2>
+            <ol>
+                <li>Tiến hành kiểm tra định kỳ và bảo dưỡng hệ thống báo cháy, bộ chữa cháy và thiết bị an toàn trong tòa nhà.</li>
+                <li>Xây dựng và thực hiện kế hoạch đào tạo cho nhân viên và cư dân về an toàn cháy nổ.</li>
+                <li>Tuân thủ các quy tắc về việc sử dụng các thiết bị điện tử, nước, và nguồn nhiệt trong tòa nhà để tránh nguy cơ cháy.</li>
+                <li>Xác định và giám sát các khu vực có nguy cơ cao và đảm bảo tuân thủ các quy tắc về sử dụng và lưu trữ chất dễ cháy và nổ.</li>
+                <li>Tạo ra một môi trường sống và làm việc an toàn bằng cách thực hiện các biện pháp an ninh và an toàn, chẳng hạn như cài đặt thiết bị bảo vệ phù hợp và bảo vệ các thông tin quan trọng.</li>
+            </ol>
+        </div>
+    </div>
+    <div id="level-b" class="hidden">
+        <p class="message">ALARM LEVEL B GOES ON</p>
+        <div class="content">
+            <h2>Cảnh Báo Đã Phát Hiện Đám Cháy Nhỏ!!!</h2>
+            <ol>
+                <li>Thông báo cho nhân viên hoặc cư dân trong tòa nhà về cảnh báo bằng cách kích hoạt báo cháy hoặc cảnh báo tương tự.</li>
+                <li>Liên hệ với cơ quan cứu hỏa hoặc dịch vụ chữa cháy để báo cáo tình hình và xác minh.</li>
+                <li>Theo dõi tình hình để đảm bảo an toàn và sẵn sàng thực hiện các hành động tiếp theo nếu cần.</li>
+            </ol>
+        </div>
+    </div>
+    <div id="level-a" class="hidden" >
+        <p class="message">ALARM LEVEL A GOES ON</p>
+        <div class="content">
+            <h2>Nguy Hiểm!!! Đã Phát Hiện Đám Cháy Lớn!!!</h2>
+            <ol>
+                <li>Kích hoạt báo cháy và báo động cho tất cả mọi người trong tòa nhà bằng cách sử dụng hệ thống báo cháy hoặc thiết bị tương tự.</li>
+                <li>Gọi cứu hỏa bằng số điện thoại 114 hoặc số điện thoại cứu hỏa địa phương.</li>
+                <li>Thực hiện kế hoạch sơ tán hoặc lưu trú an toàn nếu cần thiết và tuân thủ hướng dẫn của cơ quan cứu hỏa.</li>
+            </ol>
+        </div>
+        <div id="forms">
+            <h2>Form cứu hộ</h2>
+            <div id="rescue-form">
+                <label class="first-lable">Chủ hộ</label><br>
+                <input id="name-input" type="text"><br>
+                <label>Tòa</label><br>
+                <input id="deparment-input" type="text"><br>
+                <label>Phòng</label><br>
+                <input id="room-input" type="text"><br>
+                <label for="">Có trẻ con</label><br>
+                <select id="have-kids-input">
+                    <option value="Có">Có</option>
+                    <option value="Không">Không</option>
+                </select><br>
+                <label for="">Có người già</label><br>
+                <select id="have-old-input">
+                    <option value="Có">Có</option>
+                    <option value="Không">Không</option>
+                </select><br>
+                <button onclick="createNewRescue()">Submit</button>
+            </div>
+            <h2>Chưa sơ tán</h2>
+            <table id="not-rescue-list">
+                <tr>
+                    <th>Chủ hộ</th>
+                    <th>Tòa</th>
+                    <th>Phòng</th>
+                    <th>Có trẻ con</th>
+                    <th>Có người già</th>
+                    <th>Đã sơ tán</th>
+                </tr>
+            </table>
+            <h2>Đã sơ tán</h2>
+            <table id="rescue-list">
+                <tr>
+                    <th>Chủ hộ</th>
+                    <th>Tòa</th>
+                    <th>Phòng</th>
+                    <th>Có trẻ con</th>
+                    <th>Có người già</th>
+                    <th>Đã sơ tán</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <footer>
+        @2023 Phan Thanh Dương 21520762
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
