@@ -37,6 +37,7 @@ function hideLevelB() {
 
 function toggleLevelA(event) {
     if (levelA.classList.contains('hidden')) {
+        levelC.classList.add('hidden');
         levelB.classList.add('hidden');
         levelA.classList.remove('hidden');
         event.target.onmouseover = null;
