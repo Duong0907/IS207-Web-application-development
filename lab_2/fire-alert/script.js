@@ -49,6 +49,6 @@ function toggleLevelA(event) {
         levelA.classList.add('hidden');
         event.target.onmouseover = showLevelB;
         event.target.onmouseout = hideLevelB;
-        button.classList.remove('button-level-a');      
+        button.classList.remove('button-level-a');
     }
 }
