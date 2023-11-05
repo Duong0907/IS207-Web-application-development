@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            border: 1px solid #ccc;
+            width: fit-content;
+            padding: 10px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        form>div {
+            margin: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label:not(.radio-label) {
+            display: inline-block;
+            min-width: 200px;
+        }
+
+        input,
+        select {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <h2>Đăng ký thông tin thành viên</h2>
+        <div>
+            <label for="nickname">Nickname</label>
+            <input type="text" name="nickname" id="nickname">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email">
+        </div>
+        <div>
+            <label for="phone-number">Số điện thoại di động</label>
+            <input type="text" name="phone-number" id="phone-number">
+        </div>
+        <div>
+            <label for="password">Mật khẩu</label>
+            <input type="password" name="password" id="password">
+        </div>
+        <div>
+            <label for="name">Họ và tên</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="birth-day">Ngày sinh</label>
+            <input type="text" name="birth-day" id="birth-day">
+        </div>
+        <div>
+            <label for="">Giới tính</label>
+            <label class="radio-label" for="gender">Nam</label>
+            <input type="radio" name="male" id="male">
+            <label class="radio-label" for="gender">Nữ</label>
+            <input type="radio" name="female" id="female">
+        </div>
+        <div>
+            <div>
+                <label for="secret-question">Câu hỏi bí mật:</label>
+                <select name="secret-question" id="secret-question">
+                    <option value="Bạn thích con gì nhất?">Bạn thích con gì nhất?</option>
+                    <option value="Bạn thích món gì nhất?">Bạn thích món gì nhất?</option>
+                    <option value="Bạn thích đội nào nhất?">Bạn thích đội nào nhất?</option>
+                    <option value="Bạn thích ai nhất?">Bạn thích ai nhất?</option>
+                </select>
+            </div>
+            <div>
+                <label for="secret-answer">Đáp án</label>
+                <input type="text" name="secret-answer" id="secret-answer">
+            </div>
+        </div>
+        <button type="" onclick="checkForm();">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <script>
+        function checkForm() {
+            // Check birth day
+            let birthDayInput = document.getElementById('birth-day').value;
+            let birthDayArray = birthDayInput.split('/');
+            let newBirthDay = birthDayArray[2] + '-' + birthDayArray[1] + '-' + birthDayArray[0];
+            let birthDay = new Date(newBirthDay);
+            let today = new Date();
+            if (birthDay == 'Invalid Date' || birthDay >= today) {
+                alert('Ngày sinh không hợp lệ');
+                return;
+            }
+
+            // Check secret answer
+            let secretAnswer = document.getElementById('secret-answer').value;
+            if (secretAnswer.length < 5) {
+                alert('Câu trả lời cho câu hỏi bí mật quá ngắn ( < 5 kí tự)!');
+                return;
+            }
+
+            alert('Đăng ký thành công');
+        }
+    </script>
+</body>
+
+</html>

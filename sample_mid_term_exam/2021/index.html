@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-bottom: 10px;
+        }
+
+        .outter-container {
+            padding: 10px;
+        }
+
+        .product-list {
+            display: flex;
+        }
+
+        .product-container {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        .product-container img {
+            height: 200px;
+        }
+
+        table, td{
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+        h3 {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="outter-container">
+        <div class="product-list container">
+            <div class="product-container">
+                <img src="./images/iphone.jpeg" alt="Iphone image">
+                <button name="Iphone 12" value="24000000" onclick="buy(event)">Mua hàng</button>
+            </div>
+            <div class="product-container">
+                <img src="./images/samsung.jpeg" alt="Iphone image">
+                <button name="Samsung S20" value="12000000" onclick="buy(event)">Mua hàng</button>
+            </div>
+            <div class="product-container">
+                <img src="./images/oppo.jpeg" alt="Iphone image">
+                <button name="Reno6" value="10000000" onclick="buy(event)">Mua hàng</button>
+            </div>
+        </div>
+    
+        <div class="cart-container container">
+            <h3>Giỏ hàng</h3>
+            <table>
+            </table>
+        </div>
+    
+        <div class="purchase-container container">
+            <button onclick="purchase()">Thanh toán</button>
+            <p>Tổng tiền:</p>
+        </div>
+    </div>
+
+    <script>
+        var cartContainer = document.querySelector('table');
+        var cartList = cartContainer.getElementsByTagName('tr');
+        var totalMoney = 0;
+
+        function buy(event) { 
+            let productName = event.target.name;
+            let productPrice = parseInt(event.target.value);
+
+            totalMoney += productPrice;
+            
+            // Check existed
+            let existed = false;
+            for (let i = 0; i < cartList.length; i++) {
+                let name = cartList[i].querySelector('td:first-child').innerHTML;
+                if (name == productName) {
+                    existed = true;
+
+                    let amount = cartList[i].querySelector('td:nth-child(2)').innerHTML;
+                    cartList[i].querySelector('td:nth-child(2)').innerHTML = parseInt(amount) + 1;
+
+                    let money = cartList[i].querySelector('td:nth-child(3)').innerHTML;
+                    cartList[i].querySelector('td:nth-child(3)').innerHTML = parseInt(money) + productPrice;
+                    
+                    return;
+                }
+            }
+
+            if (!existed) {
+                let newCartItem = document.createElement('tr');
+                newCartItem.innerHTML = `
+                    <td>${productName}</td>
+                    <td>1</td>
+                    <td>${productPrice}</td>
+                    <td><button onclick="deleteCartItem(event)">delete</button></td>
+                `;
+                cartContainer.appendChild(newCartItem);
+            }
+        }
+
+        function deleteCartItem(event) {
+            let item = event.target.parentNode.parentNode;
+            cartContainer.removeChild(item);
+
+            removedMoney = item.querySelector('td:nth-child(3)').innerHTML;
+            totalMoney -= parseInt(removedMoney);
+        }
+
+        function purchase() {
+            document.querySelector('.purchase-container p').innerHTML = "Tổng tiền: " + totalMoney;
+        }
+    </script>
+</body>
+</html>
