@@ -8,4 +8,3 @@ class Post {
      public $imageLink; 
      public $productLink; 
 }
-?>

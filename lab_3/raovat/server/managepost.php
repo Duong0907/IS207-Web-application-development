@@ -406,6 +406,10 @@
     .navbar-inverse .navbar-nav>li>a {
       color: #222;
     }
+
+    .button:hover {
+      cursor: pointer;
+    }
   </style>
 
 
@@ -422,7 +426,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a style="color:#222;" class="navbar-brand" href="index.html">RaoVat.Com</a>
+        <a style="color:#222;" class="navbar-brand" href="index.php">RaoVat.Com</a>
       </div>
 
       <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -437,10 +441,7 @@
   </nav>
 
   <?php
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "raovat";
+  require('./config.php');
 
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
@@ -450,7 +451,7 @@
   }
 
   //collect
-  $query = "SELECT Id, ProductName, SalePrice, CategoryName FROM product ORDER BY Id";
+  $query = "SELECT Id, ProductName, SalePrice, CategoryName, ImageLink, ProductLink FROM product ORDER BY Id";
   $result = $conn->query($query);
   $conn->close();
   ?>
@@ -493,9 +494,10 @@
                         <td><?php echo $row["ProductName"] ?></td>
                         <td><?php echo $row["SalePrice"] ?></td>
                         <td><?php echo $row["CategoryName"] ?></td>
-                        <td><a class="button">Edit</a></td>
-                        </td>
-                        <td><a class="button">Delete</a></td>
+                        <td style="display:none;"><?php echo $row["ImageLink"] ?></td>
+                        <td style="display:none;"><?php echo $row["ProductLink"] ?></td>
+                        <td><a class="button edit-btn">Edit</a></td>
+                        <td><a class="button delete-btn">Delete</a></td>
                       </tr>
 
                     <?php
@@ -524,6 +526,44 @@
   <script src="js/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
+
+  <script>
+    let deleteBtns = document.getElementsByClassName('delete-btn');
+    for (let i = 0; i < deleteBtns.length; i++) {
+      let id = deleteBtns[i].parentNode.parentNode.querySelector('td').innerHTML;
+      deleteBtns[i].onclick = () => {
+        let ok = confirm("Bạn có chắc chắn muốn xóa?");
+        if (ok) {
+          window.location.href = "http://localhost/raovat/server/postcontroller.php?action=delete&id=" + id;
+        }
+      };
+    }
+
+    let editBtns = document.getElementsByClassName('edit-btn');
+    for (let i = 0; i < editBtns.length; i++) {
+      editBtns[i].onclick = (event) => {
+        let currPostRow = event.target.parentNode.parentNode.querySelectorAll('td');
+
+        let productId = currPostRow[0].innerHTML;
+        let productName = currPostRow[1].innerHTML;
+        let price = currPostRow[2].innerHTML;
+        let category = currPostRow[3].innerHTML;
+        let imageLink = currPostRow[4].innerHTML;
+        let productLink = currPostRow[5].innerHTML;
+
+
+        document.cookie = 'productId=' + productId;
+        document.cookie = 'productName=' + productName;
+        document.cookie = 'price=' + price;
+        document.cookie = 'category=' + category;
+        document.cookie = 'imageLink=' + imageLink;
+        document.cookie = 'productLink=' + productLink;
+
+
+        window.location.href = "http://localhost/raovat/server/editpost.php";
+      }
+    }
+  </script>
 </body>
 
 </html>
