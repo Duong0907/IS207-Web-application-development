@@ -1,0 +1,21 @@
+body {
+    font-family: 'Roboto';
+}
+
+#left-sidebar, #main-content {
+    height: 500px;
+    border: 1px solid red;
+    margin-bottom: 50px;
+}
+
+#footer {        
+    text-align: center;
+}
+
+.navbar-inverse{
+    background-color: #ED7D31;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #222;
+}
