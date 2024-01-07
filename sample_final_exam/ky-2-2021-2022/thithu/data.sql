@@ -1,0 +1,30 @@
+-- database name: CACHLY-COVID19
+
+CREATE TABLE DIEMCACHLY (
+    MaDiemCachLy INT NOT NULL PRIMARY KEY,
+    TenDiemCachLy VARCHAR(50),
+    DiaChi VARCHAR(50),
+    SucChua INT
+);
+
+CREATE TABLE CONGDAN (
+    MaCongDan INT NOT NULL PRIMARY KEY,
+    TenCongDan VARCHAR(20),
+    GioiTinh VARCHAR(3),
+    NamSinh INT,
+    NuocVe VARCHAR(10),
+    MaDiemCachLy INT,
+    FOREIGN KEY (MaDiemCachLy) REFERENCES DIEMCACHLY(MaDiemCachLy)
+);
+
+CREATE TABLE TRIEUCHUNG (
+    MaTrieuChung INT NOT NULL PRIMARY KEY,
+    TenTrieuChung VARCHAR(20)
+);
+
+CREATE TABLE CN_TC (
+    MaCongDan INT,
+    MaTrieuChung INT,
+    FOREIGN KEY (MaCongDan) REFERENCES CONGDAN(MaCongDan),
+    FOREIGN KEY (MaTrieuChung) REFERENCES TRIEUCHUNG(MaTrieuChung)
+);
